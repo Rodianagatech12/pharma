@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "986128902130",
+    "project_id": "pharma-96d2f",
+    "storage_bucket": "pharma-96d2f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986128902130:android:ff474c44cce6012db6ad6b",
+        "android_client_info": {
+          "package_name": "com.example.pharma"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKceb0-MIA2154JeLT1GlKagzo3Ghohos"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
