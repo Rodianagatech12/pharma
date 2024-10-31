@@ -7,12 +7,12 @@ class AuthenticationProvider with ChangeNotifier {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   User? _user;
 
-  String? userName; // إضافة خاصية اسم المستخدم
-  String? userPhone; // إضافة خاصية رقم الهاتف
+  String? userName;
+  String? userPhone;
 
   void updateUserName(String newName) {
     userName = newName;
-    notifyListeners(); // إعلام المستمعين بالتغيير
+    notifyListeners();
   }
 
   User? get user => _user;
@@ -27,11 +27,10 @@ class AuthenticationProvider with ChangeNotifier {
       );
       _user = userCredential.user;
 
-      // حفظ المعلومات الإضافية في Firestore
       await _firestore.collection('users').doc(_user!.uid).set({
         'email': email,
-        'name': name, // حفظ اسم المستخدم
-        'phone': phone, // حفظ رقم الهاتف
+        'name': name,
+        'phone': phone,
       });
 
       userName = name;
@@ -51,13 +50,12 @@ class AuthenticationProvider with ChangeNotifier {
       );
       _user = userCredential.user;
 
-      // جلب بيانات المستخدم من Firestore
       DocumentSnapshot userDoc =
           await _firestore.collection('users').doc(_user!.uid).get();
 
       if (userDoc.exists) {
-        userName = userDoc['name']; // جلب اسم المستخدم
-        userPhone = userDoc['phone']; // جلب رقم الهاتف
+        userName = userDoc['name'];
+        userPhone = userDoc['phone'];
       }
 
       notifyListeners();

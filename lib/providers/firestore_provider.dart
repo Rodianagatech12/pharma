@@ -9,7 +9,6 @@ class FirestoreProvider with ChangeNotifier {
 
   Future<void> fetchPharmacies() async {
     try {
-      // استرجاع جميع الصيدليات من Firestore
       QuerySnapshot snapshot = await _firestore.collection('pharmacies').get();
       _pharmacies = snapshot.docs.map((doc) {
         return {
@@ -25,7 +24,6 @@ class FirestoreProvider with ChangeNotifier {
 
   Future<List<Map<String, dynamic>>> fetchSections(String pharmacyId) async {
     try {
-      // استرجاع جميع الأقسام داخل صيدلية معينة
       QuerySnapshot snapshot = await _firestore
           .collection('pharmacies')
           .doc(pharmacyId)

@@ -12,7 +12,7 @@ class _AddPillScreenState extends State<AddPillScreen> {
   final TextEditingController _amountController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
   final TextEditingController _timeController = TextEditingController();
-  String _selectedPillForm = 'Tablet'; // الإعداد الافتراضي
+  String _selectedPillForm = 'Tablet';
 
   TimeOfDay _selectedTime = TimeOfDay.now();
 
@@ -35,7 +35,7 @@ class _AddPillScreenState extends State<AddPillScreen> {
       'amount': _amountController.text,
       'time': _selectedTime.format(context),
       'description': _descriptionController.text,
-      'pillForm': _selectedPillForm, // حفظ نوع شكل الدواء
+      'pillForm': _selectedPillForm,
     };
 
     Navigator.pop(context, taskData);
@@ -45,15 +45,15 @@ class _AddPillScreenState extends State<AddPillScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF0D526A), // لون شريط التطبيق
+        backgroundColor: const Color(0xFF0D526A),
         title: const Text(
-          'إضافة دواء', // نص عنوان التطبيق
-          style: TextStyle(color: Colors.white), // لون نص العنوان
+          'إضافة دواء',
+          style: TextStyle(color: Colors.white),
         ),
       ),
       body: Container(
         decoration: const BoxDecoration(
-          color: Colors.white, // لون خلفية الصفحة
+          color: Colors.white,
         ),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -67,7 +67,7 @@ class _AddPillScreenState extends State<AddPillScreen> {
                 ),
                 const SizedBox(height: 20),
                 const Text(
-                  'إضافة دواء', // نص الرأس
+                  'إضافة دواء',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -142,8 +142,8 @@ class _AddPillScreenState extends State<AddPillScreen> {
                 ElevatedButton(
                   onPressed: _saveTask,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF0D526A), // لون الزر
-                    foregroundColor: Colors.white, // لون نص الزر
+                    backgroundColor: const Color(0xFF0D526A),
+                    foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(
                         vertical: 15, horizontal: 40),
                     textStyle: const TextStyle(fontSize: 18),

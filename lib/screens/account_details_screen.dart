@@ -52,7 +52,6 @@ class _AccountDetailsScreenState extends State<AccountDetailsScreen> {
       await prefs.setString('notes', notesController.text);
       await prefs.setString('gender', gender ?? '');
 
-      // تحديث اسم المستخدم في AuthenticationProvider
       Provider.of<AuthenticationProvider>(context, listen: false)
           .updateUserName(nameController.text);
 

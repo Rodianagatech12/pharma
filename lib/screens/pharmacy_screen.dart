@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'pharmacy_detail_screen.dart';
-// تأكد من استيراد صفحة سلة التسوق
 
 class PharmacyScreen extends StatelessWidget {
   const PharmacyScreen({super.key});
@@ -113,13 +112,11 @@ class PharmacyScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Row(
-            mainAxisAlignment:
-                MainAxisAlignment.end, // Align items to the right
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Expanded(
                 child: Column(
-                  crossAxisAlignment:
-                      CrossAxisAlignment.end, // Align text to the right
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
                       name,
@@ -127,12 +124,11 @@ class PharmacyScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                       ),
-                      textAlign: TextAlign.right, // Align text to the right
+                      textAlign: TextAlign.right,
                     ),
                     const SizedBox(height: 4),
                     Row(
-                      mainAxisAlignment:
-                          MainAxisAlignment.end, // Align icons to the right
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         const Icon(
                           Icons.location_on,
@@ -146,14 +142,13 @@ class PharmacyScreen extends StatelessWidget {
                             fontSize: 16,
                             color: Colors.grey,
                           ),
-                          textAlign: TextAlign.right, // Align text to the right
+                          textAlign: TextAlign.right,
                         ),
                       ],
                     ),
                     const SizedBox(height: 4),
                     Row(
-                      mainAxisAlignment:
-                          MainAxisAlignment.end, // Align icons to the right
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         const Icon(
                           Icons.phone,
@@ -167,14 +162,14 @@ class PharmacyScreen extends StatelessWidget {
                             fontSize: 16,
                             color: Colors.blue,
                           ),
-                          textAlign: TextAlign.right, // Align text to the right
+                          textAlign: TextAlign.right,
                         ),
                       ],
                     ),
                   ],
                 ),
               ),
-              const SizedBox(width: 16), // Add space between text and logo
+              const SizedBox(width: 16),
               ClipOval(
                 child: Image.asset(
                   logoPath,

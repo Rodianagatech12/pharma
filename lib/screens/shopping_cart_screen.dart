@@ -13,11 +13,10 @@ class ShoppingCartScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'سلة التسوق',
-          style: TextStyle(color: Colors.white), // لون النص
+          style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: const Color(0xFF0D526A), // لون الخلفية
-        iconTheme:
-            const IconThemeData(color: Colors.white), // لون أيقونة العودة
+        backgroundColor: const Color(0xFF0D526A),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: cartProvider.itemCount == 0
           ? const Center(child: Text('سلتك فارغة'))
@@ -34,7 +33,6 @@ class ShoppingCartScreen extends StatelessWidget {
                     title: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        // عرض اسم المنتج
                         Expanded(
                           child: Text(
                             item['name'],
@@ -42,13 +40,11 @@ class ShoppingCartScreen extends StatelessWidget {
                             style: const TextStyle(fontSize: 16),
                           ),
                         ),
-                        // منطقة الأزرار لزيادة ونقص عدد القطع
                         Row(
                           children: [
                             IconButton(
                               icon: const Icon(Icons.remove),
                               onPressed: () {
-                                // تنفيذ الإجراء لنقص عدد القطع
                                 cartProvider.removeItem(item);
                               },
                             ),
@@ -56,14 +52,13 @@ class ShoppingCartScreen extends StatelessWidget {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 8),
                               child: const Text(
-                                '1', // هنا يمكن عرض عدد القطع الفعلية
+                                '1',
                                 style: TextStyle(fontSize: 16),
                               ),
                             ),
                             IconButton(
                               icon: const Icon(Icons.add),
                               onPressed: () {
-                                // تنفيذ الإجراء لزيادة عدد القطع
                                 cartProvider.addItem(item);
                               },
                             ),
@@ -89,9 +84,7 @@ class ShoppingCartScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ElevatedButton(
-              onPressed: () {
-                // تنفيذ عملية الدفع أو إجراء آخر
-              },
+              onPressed: () {},
               style: ElevatedButton.styleFrom(
                 foregroundColor: const Color(0xFF0D526A),
                 backgroundColor: Colors.white,

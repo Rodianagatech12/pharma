@@ -20,7 +20,7 @@ class _ReminderScreenState extends State<ReminderScreen> {
   ];
   List<String> taskNames = ["Task 1"];
   List<bool> isMedication = [true];
-  List<bool> isTaken = [false]; // إضافة حقل لتتبع حالة أخذ الدواء
+  List<bool> isTaken = [false];
 
   String _formatDate(DateTime date) {
     return DateFormat.yMMMM().format(date);
@@ -74,7 +74,7 @@ class _ReminderScreenState extends State<ReminderScreen> {
         pillControllers.removeAt(index);
         selectedTimes.removeAt(index);
         isMedication.removeAt(index);
-        isTaken.removeAt(index); // إزالة حالة أخذ الدواء
+        isTaken.removeAt(index);
       });
     }
   }
@@ -194,7 +194,7 @@ class _ReminderScreenState extends State<ReminderScreen> {
                         children: [
                           _buildAlarmTile(index),
                           const SizedBox(height: 10),
-                          const Divider(), // إضافة فاصل بين المهام
+                          const Divider(),
                         ],
                       );
                     }),
@@ -244,7 +244,6 @@ class _ReminderScreenState extends State<ReminderScreen> {
                       style: TextStyle(color: Colors.black),
                     ),
                   ],
-                  // إضافة حالة أخذ الدواء
                   Row(
                     children: [
                       Icon(
@@ -279,12 +278,11 @@ class _ReminderScreenState extends State<ReminderScreen> {
                   style: const TextStyle(color: Colors.black),
                 ),
               ),
-            // إضافة زر لتغيير حالة أخذ الدواء
             IconButton(
               icon: const Icon(Icons.check, color: Colors.blue),
               onPressed: () {
                 setState(() {
-                  isTaken[index] = !isTaken[index]; // تغيير حالة أخذ الدواء
+                  isTaken[index] = !isTaken[index];
                 });
               },
             ),

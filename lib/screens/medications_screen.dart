@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 class MedicationsScreen extends StatelessWidget {
   final String categoryName;
 
-  // Sample medication data with Arabic category names
   final Map<String, List<Map<String, dynamic>>> medicationsByCategory = {
     'العناية بالبشرة': [
       {
@@ -43,18 +42,16 @@ class MedicationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final medications = medicationsByCategory[categoryName] ?? [];
-    final cartProvider =
-        Provider.of<CartProvider>(context); // الحصول على CartProvider
+    final cartProvider = Provider.of<CartProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
           categoryName,
-          style: const TextStyle(color: Colors.white), // لون نص العنوان
+          style: const TextStyle(color: Colors.white),
         ),
         backgroundColor: const Color(0xFF0D526A),
-        iconTheme:
-            const IconThemeData(color: Colors.white), // لون أيقونة العودة
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: medications.isEmpty
           ? const Center(child: Text('لا توجد أدوية في هذه الفئة'))
@@ -95,7 +92,7 @@ class MedicationsScreen extends StatelessWidget {
                           );
                         },
                         child: Card(
-                          elevation: 4, // إضافة ظل خفيف
+                          elevation: 4,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
@@ -105,8 +102,7 @@ class MedicationsScreen extends StatelessWidget {
                               Expanded(
                                 child: ClipRRect(
                                   borderRadius: const BorderRadius.vertical(
-                                      top: Radius.circular(
-                                          12)), // جعل الزوايا دائرية
+                                      top: Radius.circular(12)),
                                   child: Image.asset(
                                     medication['image'],
                                     fit: BoxFit.cover,
@@ -157,18 +153,17 @@ class MedicationsScreen extends StatelessWidget {
                                       icon: const Icon(Icons.remove),
                                       onPressed: itemCount > 0
                                           ? () {
-                                              cartProvider.cartItems.remove(
-                                                  itemInCart); // حذف العنصر
+                                              cartProvider.cartItems
+                                                  .remove(itemInCart);
                                               cartProvider.notifyListeners();
                                             }
-                                          : null, // منع النقر إذا كان العدد 0
+                                          : null,
                                     ),
                                     Text(itemCount > 0 ? '$itemCount' : '0'),
                                     IconButton(
                                       icon: const Icon(Icons.add),
                                       onPressed: () {
-                                        cartProvider.addItem(
-                                            medication); // إضافة العنصر إلى السلة
+                                        cartProvider.addItem(medication);
                                       },
                                     ),
                                   ],
@@ -192,38 +187,28 @@ class MedicationsScreen extends StatelessWidget {
                         children: [
                           Text(
                             'عدد القطع: ${cartProvider.itemCount}',
-                            style: const TextStyle(
-                                color:
-                                    Colors.white), // تغيير لون النص إلى الأبيض
+                            style: const TextStyle(color: Colors.white),
                           ),
                           Text(
                             'مجموع السعر: ${cartProvider.totalPrice} LYD',
-                            style: const TextStyle(
-                                color:
-                                    Colors.white), // تغيير لون النص إلى الأبيض
+                            style: const TextStyle(color: Colors.white),
                           ),
                         ],
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
-                          backgroundColor:
-                              const Color(0xFF0D526A), // لون النص والأيقونة
+                          backgroundColor: const Color(0xFF0D526A),
                         ),
                         onPressed: () {
-                          Navigator.of(context)
-                              .pushNamed('/cart'); // الانتقال إلى صفحة السلة
+                          Navigator.of(context).pushNamed('/cart');
                         },
                         child: const Row(
                           children: [
-                            Icon(Icons.shopping_cart,
-                                color: Colors
-                                    .white), // تغيير لون الأيقونة إلى الأبيض
+                            Icon(Icons.shopping_cart, color: Colors.white),
                             SizedBox(width: 8),
                             Text('عرض السلة',
-                                style: TextStyle(
-                                    color: Colors
-                                        .white)), // تغيير لون النص إلى الأبيض
+                                style: TextStyle(color: Colors.white)),
                           ],
                         ),
                       ),

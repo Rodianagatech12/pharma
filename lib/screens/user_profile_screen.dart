@@ -22,12 +22,11 @@ class UserProfileScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            _buildHeader(authProvider), // الهيدر في أعلى الصفحة
+            _buildHeader(authProvider),
             const SizedBox(height: 150),
             Center(
-              // وضع الكروت في منتصف الصفحة
               child: Column(
-                mainAxisSize: MainAxisSize.min, // جعل العمود بأقل ارتفاع ممكن
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   _buildAccountDetailsCard(context),
                   const SizedBox(height: 20),
@@ -111,7 +110,7 @@ class UserProfileScreen extends StatelessWidget {
         trailing: IconButton(
           icon: const Icon(Icons.arrow_forward_ios),
           onPressed: () async {
-            await authProvider.logout(); // استدعاء دالة تسجيل الخروج
+            await authProvider.logout();
           },
         ),
       ),
