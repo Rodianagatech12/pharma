@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharma/screens/account_details_screen.dart';
 import 'package:provider/provider.dart';
 import '../providers/authentication_provider.dart';
 
@@ -11,55 +12,28 @@ class UserProfileScreen extends StatelessWidget {
     final user = authProvider.user;
 
     if (user == null) {
-      return Scaffold(
-        appBar: AppBar(
-          title: const Text('حسابي'),
-        ),
-        body: const Center(child: Text('لا يوجد مستخدم مسجل.')),
-      );
+      return _buildNoUserScreen();
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('حسابي'),
-      ),
+      backgroundColor: Colors.grey.shade100,
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            // أيقونة الشخص بدلاً من الصورة
-            const Icon(
-              Icons.person,
-              size: 100, // حجم الأيقونة
-              color: Colors.grey,
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'معلومات المستخدم',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20),
-            _buildInfoCard('البريد الإلكتروني', user.email ?? "غير متوفر"),
-            _buildInfoCard(
-                'اسم المستخدم',
-                authProvider.userName ??
-                    "غير متوفر"), // افترض أنك تخزن اسم المستخدم في AuthenticationProvider
-            _buildInfoCard(
-                'رقم الهاتف',
-                authProvider.userPhone ??
-                    "غير متوفر"), // افترض أنك تخزن رقم الهاتف في AuthenticationProvider
-            const SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed('/edit_profile');
-              },
-              style: ElevatedButton.styleFrom(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                textStyle: const TextStyle(fontSize: 18),
+            _buildHeader(authProvider), // الهيدر في أعلى الصفحة
+            const SizedBox(height: 150),
+            Center(
+              // وضع الكروت في منتصف الصفحة
+              child: Column(
+                mainAxisSize: MainAxisSize.min, // جعل العمود بأقل ارتفاع ممكن
+                children: [
+                  _buildAccountDetailsCard(context),
+                  const SizedBox(height: 20),
+                  _buildLogoutCard(context, authProvider),
+                ],
               ),
-              child: const Text('تعديل الملف الشخصي'),
             ),
           ],
         ),
@@ -67,18 +41,78 @@ class UserProfileScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildInfoCard(String title, String value) {
+  Widget _buildNoUserScreen() {
+    return const Scaffold(
+      body: Center(child: Text('لا يوجد مستخدم مسجل.')),
+    );
+  }
+
+  Widget _buildHeader(AuthenticationProvider authProvider) {
+    return Center(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(
+            Icons.person,
+            size: 100,
+            color: Colors.grey,
+          ),
+          const SizedBox(width: 10),
+          Text(
+            authProvider.userName ?? "غير متوفر",
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAccountDetailsCard(BuildContext context) {
     return Card(
-      elevation: 2,
-      margin: const EdgeInsets.symmetric(vertical: 10),
+      elevation: 1,
+      margin: const EdgeInsets.symmetric(vertical: 2),
       child: ListTile(
-        title: Text(
-          title,
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        title: const Align(
+          alignment: Alignment.centerRight,
+          child: Text(
+            'تفاصيل الحساب',
+            style: TextStyle(fontSize: 18),
+            textAlign: TextAlign.right,
+          ),
         ),
-        subtitle: Text(
-          value,
-          style: const TextStyle(fontSize: 16),
+        trailing: IconButton(
+          icon: const Icon(Icons.arrow_forward_ios),
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const AccountDetailsScreen(),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+
+  Widget _buildLogoutCard(
+      BuildContext context, AuthenticationProvider authProvider) {
+    return Card(
+      elevation: 1,
+      margin: const EdgeInsets.symmetric(vertical: 2),
+      child: ListTile(
+        title: const Align(
+          alignment: Alignment.centerRight,
+          child: Text(
+            'تسجيل الخروج',
+            style: TextStyle(fontSize: 18),
+            textAlign: TextAlign.right,
+          ),
+        ),
+        trailing: IconButton(
+          icon: const Icon(Icons.arrow_forward_ios),
+          onPressed: () async {
+            await authProvider.logout(); // استدعاء دالة تسجيل الخروج
+          },
         ),
       ),
     );

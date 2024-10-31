@@ -55,9 +55,9 @@ class ShoppingCartScreen extends StatelessWidget {
                             Container(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 8),
-                              child: Text(
+                              child: const Text(
                                 '1', // هنا يمكن عرض عدد القطع الفعلية
-                                style: const TextStyle(fontSize: 16),
+                                style: TextStyle(fontSize: 16),
                               ),
                             ),
                             IconButton(
@@ -78,9 +78,9 @@ class ShoppingCartScreen extends StatelessWidget {
             ),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: const Color(0xFF0D526A),
-          borderRadius: const BorderRadius.only(
+        decoration: const BoxDecoration(
+          color: Color(0xFF0D526A),
+          borderRadius: BorderRadius.only(
             topLeft: Radius.circular(16),
             topRight: Radius.circular(16),
           ),
@@ -93,7 +93,7 @@ class ShoppingCartScreen extends StatelessWidget {
                 // تنفيذ عملية الدفع أو إجراء آخر
               },
               style: ElevatedButton.styleFrom(
-                foregroundColor: Color(0xFF0D526A),
+                foregroundColor: const Color(0xFF0D526A),
                 backgroundColor: Colors.white,
               ),
               child: const Text('إتمام الشراء'),

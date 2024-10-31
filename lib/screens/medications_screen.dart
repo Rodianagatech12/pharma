@@ -104,7 +104,7 @@ class MedicationsScreen extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.vertical(
+                                  borderRadius: const BorderRadius.vertical(
                                       top: Radius.circular(
                                           12)), // جعل الزوايا دائرية
                                   child: Image.asset(
@@ -214,13 +214,13 @@ class MedicationsScreen extends StatelessWidget {
                           Navigator.of(context)
                               .pushNamed('/cart'); // الانتقال إلى صفحة السلة
                         },
-                        child: Row(
+                        child: const Row(
                           children: [
-                            const Icon(Icons.shopping_cart,
+                            Icon(Icons.shopping_cart,
                                 color: Colors
                                     .white), // تغيير لون الأيقونة إلى الأبيض
-                            const SizedBox(width: 8),
-                            const Text('عرض السلة',
+                            SizedBox(width: 8),
+                            Text('عرض السلة',
                                 style: TextStyle(
                                     color: Colors
                                         .white)), // تغيير لون النص إلى الأبيض

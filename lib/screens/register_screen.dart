@@ -157,8 +157,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               const SizedBox(height: 20),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pushReplacementNamed(
-                      '/home'); // توجيه المستخدم إلى الشاشة الرئيسية
+                  Navigator.of(context).pushReplacementNamed('/login');
                 },
                 child: const Text(
                   "هل لديك حساب؟ تسجيل الدخول",

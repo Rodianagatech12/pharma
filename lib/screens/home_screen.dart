@@ -86,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.settings, color: Colors.black),
-              title: Text(
+              title: const Text(
                 'الإعدادات',
                 textAlign: TextAlign.right,
               ),

@@ -10,6 +10,11 @@ class AuthenticationProvider with ChangeNotifier {
   String? userName; // إضافة خاصية اسم المستخدم
   String? userPhone; // إضافة خاصية رقم الهاتف
 
+  void updateUserName(String newName) {
+    userName = newName;
+    notifyListeners(); // إعلام المستمعين بالتغيير
+  }
+
   User? get user => _user;
 
   Future<void> registerWithEmail(
