@@ -60,7 +60,8 @@ class AuthenticationProvider with ChangeNotifier {
 
       notifyListeners();
     } catch (e) {
-      rethrow;
+      print("Login error: $e"); // تسجيل الخطأ
+      throw e; // أو يمكنك استخدام rethrow
     }
   }
 

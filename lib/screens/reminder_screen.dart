@@ -45,7 +45,7 @@ class _ReminderScreenState extends State<ReminderScreen> {
       pillControllers.add(TextEditingController(text: amount));
       selectedTimes.add(TimeOfDay.now());
       isMedication.add(medication);
-      isTaken.add(false); // إضافة حالة أخذ الدواء
+      isTaken.add(false); 
     });
   }
 
