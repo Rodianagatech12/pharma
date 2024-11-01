@@ -1,16 +1,24 @@
-# pharma
+# تطبيق دوائي
 
-A new Flutter project.
+تطبيق دوائي هو تطبيق يساعد المستخدمين على إدارة تناول أدويتهم بشكل منتظم ويتيح لهم طلب الأدوية والمستلزمات الصحية الأخرى من الصيدليات. يهدف التطبيق إلى توفير تذكيرات لتناول الأدوية وعروض خاصة من الصيدليات، بالإضافة إلى تتبع مدى انتظام المستخدم في أخذ أدويته.
 
-## Getting Started
+## الميزات الرئيسية
+- **طلب الأدوية والمستلزمات الصحية**: يمكن للمستخدمين تصفح الصيدليات وطلب الأدوية والمستلزمات الصحية الأخرى مباشرةً من التطبيق.
+- **تذكير الأدوية**: يحتوي التطبيق على ميزة التذكير التي تعمل كمنبه لتذكير المستخدم بتناول الأدوية في الوقت المحدد.
+- **إثبات تناول الدواء**: يمكن للمستخدم الضغط على علامة عند تناول الدواء للتأكيد على انتظامه في جدول الأدوية.
+- **عروض خاصة**: يعرض التطبيق عروض وخصومات من الصيدليات لمساعدة المستخدمين على الاستفادة من أفضل الأسعار.
+- **إدارة الحسابات**: يتمتع المستخدمون بنظام تسجيل دخول باستخدام Firebase Authentication لزيادة الأمان وتوفير تجربة شخصية.
 
-This project is a starting point for a Flutter application.
+## التقنيات المستخدمة
+- **Flutter**: لواجهة المستخدم المتعددة المنصات.
+- **Firebase Firestore**: لتخزين بيانات المستخدمين والأدوية وإدارة الصيدليات.
+- **Firebase Authentication**: لتسجيل دخول المستخدمين بأمان.
 
-A few resources to get you started if this is your first Flutter project:
+## المتطلبات
+- Flutter 3.0 أو أعلى.
+- حساب Firebase لتشغيل التخزين السحابي وعمليات المصادقة.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## طريقة التثبيت
+1. قم باستنساخ المستودع:
+   ```bash
+   git clone https://github.com/Rodianagatech12/pharma.git
