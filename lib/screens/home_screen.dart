@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
       key: _scaffoldKey,
       appBar: AppBar(
         backgroundColor: darkModeProvider.isDarkMode
-            ? Colors.grey[850]
+            ? const Color.fromRGBO(48, 48, 48, 1)
             : const Color(0xFF0D526A),
         iconTheme: const IconThemeData(color: Colors.white),
         title: Container(

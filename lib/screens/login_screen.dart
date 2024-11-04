@@ -27,7 +27,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 const Text(
-                  "Login",
+                  "تسجيل الدخول",
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
@@ -36,17 +36,24 @@ class LoginScreen extends StatelessWidget {
                 const SizedBox(height: 30),
                 TextField(
                   controller: _emailController,
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
-                    border: OutlineInputBorder(),
+                  decoration: InputDecoration(
+                    labelText: 'البريد الإلكتروني',
+                    prefixIcon: const Icon(Icons.email),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
+                  keyboardType: TextInputType.emailAddress,
                 ),
                 const SizedBox(height: 20),
                 TextField(
                   controller: _passwordController,
-                  decoration: const InputDecoration(
-                    labelText: 'Password',
-                    border: OutlineInputBorder(),
+                  decoration: InputDecoration(
+                    labelText: 'كلمة المرور',
+                    prefixIcon: const Icon(Icons.lock),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                   obscureText: true,
                 ),
@@ -64,11 +71,13 @@ class LoginScreen extends StatelessWidget {
                       Navigator.pushReplacementNamed(context, '/home');
                     } catch (e) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Login Failed')),
+                        const SnackBar(content: Text('فشل في تسجيل الدخول')),
                       );
                     }
                   },
                   style: ElevatedButton.styleFrom(
+                    backgroundColor:
+                        const Color(0xFF0D526A), // اللون الخلفي للزر
                     padding: const EdgeInsets.symmetric(
                         horizontal: 40, vertical: 15),
                     shape: RoundedRectangleBorder(
@@ -76,8 +85,11 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   child: const Text(
-                    "Login",
-                    style: TextStyle(fontSize: 18),
+                    "تسجيل الدخول",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white, // اللون الأبيض للنص
+                    ),
                   ),
                 ),
                 const Spacer(),
@@ -85,7 +97,10 @@ class LoginScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamed(context, '/register');
                   },
-                  child: const Text('Don\'t have an account? Sign up'),
+                  child: const Text(
+                    'ليس لديك حساب؟ سجل الآن',
+                    style: TextStyle(color: Color(0xFF0D526A)),
+                  ),
                 ),
               ],
             ),

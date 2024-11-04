@@ -34,17 +34,10 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         color: const Color(0xFF0D526A),
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                'assets/hand.png',
-                width: 150,
-                height: 150,
-              ),
-              const SizedBox(height: 20),
-              const CircularProgressIndicator(),
-            ],
+          child: Image.asset(
+            'assets/hand.png',
+            width: 200,  
+            height: 200, 
           ),
         ),
       ),

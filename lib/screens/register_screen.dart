@@ -42,17 +42,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
               const SizedBox(height: 30),
               TextField(
                 controller: _emailController,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   labelText: 'البريد الإلكتروني',
-                  border: OutlineInputBorder(),
+                  prefixIcon: const Icon(Icons.email),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
+                keyboardType: TextInputType.emailAddress,
               ),
               const SizedBox(height: 20),
               TextField(
                 controller: _passwordController,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   labelText: 'كلمة المرور',
-                  border: OutlineInputBorder(),
+                  prefixIcon: const Icon(Icons.lock),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
                 obscureText: true,
               ),
@@ -69,17 +76,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     _selectedGender = value;
                   });
                 },
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   labelText: 'الجنس',
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
               TextField(
                 controller: _dateController,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   labelText: 'تاريخ الميلاد',
-                  border: OutlineInputBorder(),
+                  prefixIcon: const Icon(Icons.calendar_today),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
                 readOnly: true,
                 onTap: () async {
@@ -108,10 +120,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           .registerWithEmail(
                         _emailController.text,
                         _passwordController.text,
-                        _dateController.text,
-                        _selectedGender!,
+                        "اسم المستخدم", // قم بتمرير الاسم هنا
+                        "رقم الهاتف", // قم بتمرير رقم الهاتف هنا
                       );
-                      Navigator.of(context).pushReplacementNamed('/account');
+                      // إظهار Dialog بعد نجاح التسجيل
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text('تم إنشاء الحساب بنجاح'),
+                            content: const Text('مرحباً بك!'),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context)
+                                      .pushReplacementNamed('/account');
+                                },
+                                child: const Text('حسناً'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('يرجى ملء جميع الحقول')),
@@ -143,6 +173,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   }
                 },
                 style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF0D526A),
+                  
                   padding:
                       const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                   shape: RoundedRectangleBorder(
@@ -151,7 +183,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 child: const Text(
                   "إنشاء حساب",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white, // اللون الأبيض للنص
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
