@@ -35,14 +35,12 @@ class PharmacyDetailScreen extends StatelessWidget {
         backgroundColor: const Color(0xFF0D526A),
         title: Text(
           name,
-          style:
-              const TextStyle(color: Colors.white), // تغيير لون النص إلى الأبيض
+          style: const TextStyle(color: Colors.white),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back,
-              color: Colors.white), // تغيير لون أيقونة الرجوع إلى الأبيض
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.of(context).pop(); // العودة إلى الشاشة السابقة
+            Navigator.of(context).pop();
           },
         ),
       ),

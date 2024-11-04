@@ -251,7 +251,7 @@ class MedicationDetailScreen extends StatelessWidget {
               'السعر: ${medication['price']}',
               style: const TextStyle(fontSize: 18),
             ),
-            // يمكنك إضافة مزيد من المعلومات عن المنتج هنا
+       
           ],
         ),
       ),

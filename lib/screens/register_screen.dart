@@ -120,10 +120,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           .registerWithEmail(
                         _emailController.text,
                         _passwordController.text,
-                        "اسم المستخدم", // قم بتمرير الاسم هنا
-                        "رقم الهاتف", // قم بتمرير رقم الهاتف هنا
+                        "اسم المستخدم",
+                        "رقم الهاتف",
                       );
-                      // إظهار Dialog بعد نجاح التسجيل
+
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
@@ -174,7 +174,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF0D526A),
-                  
                   padding:
                       const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                   shape: RoundedRectangleBorder(
@@ -185,7 +184,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   "إنشاء حساب",
                   style: TextStyle(
                     fontSize: 18,
-                    color: Colors.white, // اللون الأبيض للنص
+                    color: Colors.white,
                   ),
                 ),
               ),

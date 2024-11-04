@@ -76,8 +76,7 @@ class LoginScreen extends StatelessWidget {
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        const Color(0xFF0D526A), // اللون الخلفي للزر
+                    backgroundColor: const Color(0xFF0D526A),
                     padding: const EdgeInsets.symmetric(
                         horizontal: 40, vertical: 15),
                     shape: RoundedRectangleBorder(
@@ -88,7 +87,7 @@ class LoginScreen extends StatelessWidget {
                     "تسجيل الدخول",
                     style: TextStyle(
                       fontSize: 18,
-                      color: Colors.white, // اللون الأبيض للنص
+                      color: Colors.white,
                     ),
                   ),
                 ),
